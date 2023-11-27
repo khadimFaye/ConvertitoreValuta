@@ -355,7 +355,7 @@ class CustomContent(MDBoxLayout):
                     on_press = lambda x: self.CambiaValuta(x))
                     
                 icon = IconLeftWidget(
-                    icon="cash.multiple")
+                    icon="cash-multiple")
 
                 item.add_widget(icon)
                 rl.add_widget(item)
