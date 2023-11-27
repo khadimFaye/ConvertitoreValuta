@@ -1,6 +1,6 @@
 ## Convertitore di Valuta
 Descrizione
-Questo progetto è un convertitore di valuta basato su Python che consente agli utenti di convertire importi da una valuta all'altra utilizzando tassi di cambio in tempo reale.
+Questo progetto è un convertitore di valuta con una calcolatrice intrasgrato  basato su Python che consente agli utenti di convertire importi da una valuta all'altra utilizzando tassi di cambio in tempo reale.
 
 ## Autore
 Nome Cognome - [khadim Faye](https://github.com/khadimFaye)
@@ -13,7 +13,8 @@ Interfaccia utente semplice e intuitiva.
 
 ## Dipendenze
 Python 3.x
-Librerie esterne (elencare le librerie Python aggiuntive necessarie, ad es. requests)
+Librerie esterne (elencare le librerie Python aggiuntive necessarie, ad es.`requests`, `kivy`,`kivymd`, `bs4-Beautifulsoup`)
+
 ## Installazione
 Clona il repository sul tuo computer:
 ``` 
