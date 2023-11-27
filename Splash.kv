@@ -1,0 +1,70 @@
+<SplashScreen>:
+    MDBoxLayout:
+        MDFloatLayout:
+
+            orientation : 'vertical'
+            canvas :
+                Color :
+                    rgb :(1/255,1/255,1/255)
+                Rectangle:
+                    size : root.width,root.height
+                    pos : 0,0
+            MDIcon:
+                id : alert
+                icon : 'access-point-network-off'
+                font_size : 35
+                theme_text_color : 'Custom'
+                pos_hint : {'center_x':.5,'center_y':.7}
+            
+            MDLabel:
+                text : 'Convertitore valuta'.title()
+                font_style : 'H3'
+                font_size : dp(25)
+                halign : 'center'
+                theme_text_color : 'Custom'
+                text_color : 'white'
+                pos_hint : {'center_x':.5,'center_y':.6}
+
+            MDLabel:
+                text : '(by ck faye)'.title()
+                font_style : 'Subtitle1'
+                font_size : dp(10)
+                halign : 'center'
+                theme_text_color : 'Custom'
+                text_color : 'grey'
+                pos_hint : {'center_x':.5,'center_y':.56}
+
+            MDLabel:
+                text : 'v0.0.0.1'.title()
+                font_style : 'Subtitle1'
+                font_size : dp(15)
+                halign : 'center'
+                theme_text_color : 'Custom'
+                text_color : 'white'
+                pos_hint : {'center_x':.5,'center_y':.15}
+            
+            MDLabel:
+                id : error
+                text : ''.title()
+                font_style : 'Subtitle1'
+                font_size : dp(15)
+                halign : 'center'
+                theme_text_color : 'Error'
+                pos_hint : {'center_x':.5,'center_y':.10}
+
+            MDFlatButton:
+                id : Retry_button
+                text : ''
+                theme_text_color : 'Custom'
+                text_color : 'white'
+                pos_hint : {'center_x':.5,'center_y':.20}
+                on_press : root.Retry(root.Transition)
+            MDSpinner:
+                id : spinner
+                size_hint : (None,None)
+                size : (20,20)
+                pos_hint : {'center_x':.5,'center_y':.10}
+                thickness : 10
+                active : 1
+                
+        
