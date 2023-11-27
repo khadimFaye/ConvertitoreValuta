@@ -1,0 +1,540 @@
+<Home>:
+    MDBoxLayout:
+        orientation:'vertical'
+        MDFloatLayout:
+            canvas :
+                Color:
+                    rgb:(1/255,1/255,1/255)
+                Rectangle:
+                    size : root.width,root.height
+                    pos : 0,0
+
+            MDLabel : 
+                text :'Convertitore valuta'.title()
+                halign : 'center'
+                font_style : 'H3'
+                font_size : dp(23)
+                theme_text_color : 'Custom'
+                text_color :'F8F5F7'
+                pos_hint : {'center_x':.5,'center_y':.95}
+            MDLabel : 
+                text :'(@ck.faye)'.title()
+                halign : 'center'
+                font_style : 'Caption'
+                font_size : dp(10)
+                theme_text_color : 'Custom'
+                text_color :'grey'
+                pos_hint : {'center_x':.5,'center_y':.91}
+            MDTabs:
+                tab_bar_height : dp(30)
+                #tab_indicator_type : 'fill'
+                #tab_indicator_type : 'round'
+                #tab_indicator_type : 'line-round'
+                background_color : (1/255,1/255,1/255)
+                padding : 15
+                indicator_color : 'green'
+                anim_threshold : 0.9
+
+                spacing : 10
+                id : tabs
+                pos_hint : {'top':.89}
+                Tab1:
+                    id : tab1
+                Tab2:
+                    id : tab2
+                    content_text : 'cadahdjahdjkad'
+                    
+            
+
+        
+        
+<Tab1>:
+    title: 'Convertitore'.title()
+    canvas :
+        Color:
+            rgb:(1/255,1/255,1/255)
+        Rectangle:
+            size : root.width,root.height
+            pos : 0,0
+    
+    ################## VALUES INPUTS WIDGETS ##################
+    MDGridLayout:
+        id : inputs_container
+        spacing : 5
+        cols : 1
+        pos_hint : {'top':.95}
+        MDBoxLayout:
+            id : box_value
+            size_hint : (1,None)
+            height : card_value1.height
+            pos_hint : {'top':0.90}
+            padding : 20
+            MDCard:
+                id : card_value1
+                size_hint  : (1,None)
+                height : 120
+                radius : [10]
+                md_bg_color :(24/255,24/255,24/255)
+                pos_hint : {'center_x':0.5,'center_y':.5}
+                MDRelativeLayout:
+                    size_hint_y : None
+                    height : card_value1.height
+                    pos_hint : {'center_x':.5,'center_y':.5}
+                    MDLabel:
+                        id: currency_code0
+                
+                        text : root.DEFAULT_CURRENCY_CODE0
+                        theme_text_color : 'Custom'
+                        text_color : 'F8F5F7'
+                        font_style : 'H2'
+                        font_size : dp(15)
+                        halign : 'left'
+                        pos: (10,40)
+
+            ################## value 1 input ############à 
+                    Value1_Input_Field:
+                        id : val1
+                        on_text_validate: root.convertoValue1_to_Value2(val1)
+                    
+                    
+                    MDIconButton :
+                        id : selettore 
+                        icon : 'chevron-down'
+                        theme_icon_color : 'Custom'
+                        icon_color : 'green'
+                        icon_size : dp(20)
+                        #pos_hint : {'top':.65,'right':.95}
+                        pos :(70,80)
+                        ripple_alfa :.0
+                        ripple_rad : 1
+                        ripple_behavior : 0
+                        on_press : root.init_lista_delle_valute(self)
+    ################## VALUES INPUTS 2  ##################
+        MDBoxLayout:
+            id : box_value2
+            size_hint : (1,None)
+            height : card_value2.height
+            #pos_hint : {'top':0.48}
+            padding : 20
+            MDCard:
+                id : card_value2
+                size_hint  : (1,None)
+                height : 120
+                radius : [10]
+                md_bg_color :(24/255,24/255,24/255)
+                pos_hint : {'center_x':0.5,'center_y':.5}
+                MDRelativeLayout:
+                    size_hint_y : None
+                    height : card_value1.height
+                    pos_hint : {'center_x':.5,'center_y':.5}
+                    MDLabel:
+                        id: currency_code1
+                    
+                        text : root.DEFAULT_CURRENCY_CODE1 
+                        theme_text_color : 'Custom'
+                        text_color : 'F8F5F7'
+                        font_style : 'H2'
+                        font_size : dp(15)
+                        halign : 'left'
+                        pos:(10,40)
+
+                ######### value_2_input ########
+                    Value2_Input_Field:
+                        id :val2
+                        
+                    
+                        
+                    
+                    MDIconButton :
+                        id : selettore 
+                        icon : 'chevron-down'
+                        theme_icon_color : 'Custom'
+                        icon_color : 'green'
+                        icon_size : dp(20)
+                        pos :(70,80)
+                        ripple_alfa :.0
+                        ripple_rad : 1
+                        ripple_behavior : 0
+                        on_press : root.init_lista_delle_valute(self)
+        
+    ############### REVERSE BUTTON ###############
+    MDCard:
+        id : reverse_feature_bg
+        size_hint  : (None,None)
+        size : 66,66
+        radius : [100]
+        md_bg_color :(1/255,1/255,1/255)
+        pos_hint : {'center_x':.7,'center_y':.74}
+    MDCard:
+        id : reverse_feature
+        size_hint  : (None,None)
+        size : 60,60
+        radius : [100]
+        md_bg_color :(24/255,24/255,24/255)
+        pos_hint : reverse_feature_bg.pos_hint
+        MDRelativeLayout:
+            size_hint_y : None
+            height : reverse_feature.height
+            pos_hint : {'center_x':.5,'center_y':.5}
+
+            MDIconButton:
+                icon : 'swap-vertical'
+                icon_size : dp(30)
+                theme_icon_color : 'Custom'
+                icon_color : 'green'
+                pos_hint : {'center_x':.5,'center_y':.5}
+                on_press : root.swap_currency()
+    ################ TASTIERA ################
+    MDBoxLayout:
+        MDGridLayout:
+            cols : 1
+            padding : (16,0,16,-1)
+            pos_hint : {'top':.49}
+            spacing : 15
+            MDGridLayout:
+                id : tst
+                cols : 3
+                size_hint :(1,None)
+                height : 150
+                spacing : 5 
+            ##########  bottoni aggiuntive per la cancellazione e la validazione ###########
+            MDFlatButton:
+                id : validate
+                text : 'Converti'
+                size_hint : 1,None
+                theme_text_color : 'Custom'
+                text_color : 'white'
+                height : 50
+                md_bg_color : 'green'
+               
+       
+
+
+<Tab2>:
+    id : tab2
+    title : 'calcolatrice'.title()
+    MDLabel :
+        id : display
+        text :root.DEFAULT_VALUE
+        font_style : 'H3'
+        font_size : dp(30)
+        bold : True
+        halign : 'center'
+        theme_text_color : 'Custom'
+        text_color : 'white'
+        pos : (5,200)
+
+    MDLabel :
+        id : op
+        text :root.SUB_DSP
+        font_style : 'Caption'
+        font_size : dp(15)
+        bold : True
+        halign : 'center'
+        theme_text_color : 'Custom'
+        text_color : 'grey'
+        pos : (80,240)
+
+    MDBoxLayout:
+        
+        MDCard:
+            id : buttons
+            size_hint: (1,0.65)
+            md_bg_color : (24/255,24/255,24/255, 0.75)
+            MDRelativeLayout:
+                size_hint_y : None
+                height : buttons.height
+                pos_hint : {'center_x':.5,'center_y':.5}
+
+                MDGridLayout:
+                    size_hint : 1,None
+                    height : 300
+                    id : calcolatrice
+                    cols : 4
+                    spacing : 3
+                    padding : 16
+                    
+                    pos_hint : {'center_x':.5,'center_y':.6}
+                #------- prima colonna --------
+                    MDFlatButton: 
+                        id : cancella
+                        text : 'C'
+                        theme_text_color : 'Custom'
+                        text_color : 'darkgrey'
+                        halign : 'center'
+                        size_hint :1,1
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    MDFlatButton:
+                        id : Piu_meno 
+                        text : '+/-'
+                        theme_text_color : 'Custom'
+                        text_color : 'darkgrey'
+                        halign : 'center'
+                        size_hint :1,1
+                        elevation : False
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton: 
+                        id : segno_percentuale
+                        text : '%'
+                        theme_text_color : 'Custom'
+                        text_color : 'darkgrey'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : division_sign
+                        text : '/'
+                        theme_text_color : 'Custom'
+                        text_color : 'green'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    #------- seconda colonna --------
+
+                    MDFlatButton: 
+                        id : num_7
+                        text : '7'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    MDFlatButton: 
+                        id : num_8
+                        text : '8'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : num_9
+                        text : '9'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : multiply_sign
+                        text : '*'
+                        theme_text_color : 'Custom'
+                        text_color : 'green'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    
+                    #------- terza colonna --------
+
+                    MDFlatButton: 
+                        id : num_4
+                        text : '4'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        size_hint : 1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    MDFlatButton: 
+                        id : num_5
+                        text : '5'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : num_6
+                        text : '6'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : piu
+                        text : '+'
+                        theme_text_color : 'Custom'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        text_color : 'green'
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    
+                    #------- 4 colonna --------
+
+                    MDFlatButton: 
+                        id : num_1
+                        text : '1'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    MDFlatButton:
+                        id : num_2 
+                        text : '2'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : num_3
+                        text : '3'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton: 
+                        id :  meno
+                        text : '-'
+                        theme_text_color : 'Custom'
+                        text_color : 'green'
+                        halign : 'center'
+                        size_hint :1,1
+                        
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+                    
+                    #------- 4 colonna --------
+
+                    MDFlatButton: 
+                        id : azzerra
+                        text : '00'
+                        theme_text_color : 'Custom'
+                        text_color : 'darkgrey'
+                        halign : 'center'
+                        size_hint :1,1
+                        on_press : root.Evaluate(self)
+                        
+                        md_bg_color : buttons.md_bg_color
+                    MDFlatButton: 
+                        id : zero
+                        text : '0'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton: 
+                        id : punto
+                        text : '.'
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        md_bg_color : buttons.md_bg_color
+                        on_press : root.Evaluate(self)
+
+                    MDFlatButton:
+                        id : uguale
+                        text : '='
+                        theme_text_color : 'Custom'
+                        text_color : 'white'
+                        halign : 'center'
+                        size_hint :1,1
+                        md_bg_color : 'green'
+                        on_press : root.Evaluate(self)
+
+
+
+
+
+    #CustomContent:
+<Value1_Input_Field>:
+    text : root.Value1
+    size_hint : (.5,None)
+    height : 75
+    font_size : 25
+    text_color_normal : 'F8F5F7'
+    line_color_normal : (24/255,24/255,24/255)
+    line_color_focus : (24/255,24/255,24/255)
+    #icon_left : '$'
+    pos_hint : {'center_x':.30,'center_y':.5} 
+
+<Value2_Input_Field>:
+   
+    id : value_2_input
+    text : root.Value2 
+    size_hint : (.5,None)
+    height : 75
+    font_size : 25
+    text_color_normal : 'F8F5F7'
+    line_color_normal : (24/255,24/255,24/255)
+    line_color_focus : (24/255,24/255,24/255)
+    #icon_left : '$'
+    pos_hint : {'center_x':.30,'center_y':.5}
+    on_focus : text : '' 
+
+    
+<CustomContent>:
+    id : custom_content
+    orientation : 'vertical'
+    size_hint : (1,None)
+    height : 300
+    pos_hint : {'top':1}
+    
+    
+    MDRelativeLayout:
+        pos_hint : {'top':.5}
+        MDScrollView:
+            size_hint : 1,None
+            height : 280
+            scroll_bar : None
+            pos_hint : {'top':.98}
+            MDList:
+                spacing : 15
+                padding : 4
+                id : currency_container
+               
+              
+
+                       
+
+        
+
+        
+                            
+
+
+
+                
+
