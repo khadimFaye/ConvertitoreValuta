@@ -13,7 +13,7 @@ Interfaccia utente semplice e intuitiva.
 
 ## Dipendenze
 Python 3.x
-Librerie esterne (elencare le librerie Python aggiuntive necessarie, ad es.`requests`, `kivy`,`kivymd`, `bs4-Beautifulsoup`)
+Librerie esterne ( librerie Python aggiuntive necessarie, : `requests`, `kivy`,`kivymd`, `bs4-Beautifulsoup`)
 
 ## Installazione
 Clona il repository sul tuo computer:
