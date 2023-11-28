@@ -36,7 +36,7 @@ python ConvertitoreValuta.py
 Segui le istruzioni sull'interfaccia per convertire valute.
 
 ## Configurazione
-Modifica il file ValutaFlex.py per aggiungere nuove valute o configurare l'API utilizzata per ottenere i tassi di cambio.
+Modifica il file [valutaFlex](https://github.com/khadimFaye/ConvertitoreValuta/blob/main/valutaFlex.py) per aggiungere nuove valute o configurare l'API utilizzata per ottenere i tassi di cambio.
 ## Contributi
 Siamo aperti a contributi e suggerimenti! Sentiti libero di aprire una pull request o un problema (issue).
  # API :
