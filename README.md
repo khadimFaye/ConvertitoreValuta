@@ -48,6 +48,6 @@ Siamo aperti a contributi e suggerimenti! Sentiti libero di aprire una pull requ
  
 
 ## Licenza
-Questo progetto è sotto licenza MIT - vedere il file LICENSE.md per ulteriori dettagli.
+Questo progetto è sotto licenza MIT - vedere il file [LICENSE.md](https://github.com/khadimFaye/ConvertitoreValuta/blob/main/LICENSE) per ulteriori dettagli.
 divertiti!! :)
 
