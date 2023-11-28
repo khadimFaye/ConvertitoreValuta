@@ -29,7 +29,7 @@ Installa le dipendenze:
 pip install -r requirements.txt
 ```
 ## Utilizzo
-Esegui il file principale del programma che è [ConvertitoreValuta](https://github.com/khadimFaye/ConvertitoreValuta/blob/main/ConvertitoreValuta.py:
+Esegui il file principale del programma che è [ConvertitoreValuta](https://github.com/khadimFaye/ConvertitoreValuta/blob/main/ConvertitoreValuta.py):
 ```
 python ConvertitoreValuta.py
 ```
