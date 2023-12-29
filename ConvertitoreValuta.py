@@ -102,6 +102,8 @@ class Tab1(MDFloatLayout,MDTabsBase):
 
 class Tab2 (MDFloatLayout,MDTabsBase):
     #THE DEFAULT VALUE OF THE DISPLAY AND STC -->LIST TO SORE THE SUMM WE WANT TO  EVALUATE
+    #OP ---> THE OPERATION WE WANT TO EXECUTE
+    # SYMB --> LIST OF ALL SYMBOLS 
     DEFAULT_VALUE = StringProperty('00')
     SUB_DSP = StringProperty('')
     SYMB = ['-','C','+/-','+','*','=','/','%']
